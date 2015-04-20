@@ -6,10 +6,21 @@ h2 {
 .todo-list {
   width: 250px;
   margin: 0 auto;
+  background-color: #eaeaea;
+  padding: 1em;
+}
+
+form {
+  margin-bottom: 1em;
+  input[type="text"] {
+    padding: 0.2em;
+    width: 200px;
+  }
 }
 
 .todo-item {
   position: relative;
+
 }
 
 .todo-item-toggle-button {
@@ -19,18 +30,31 @@ h2 {
   border: 1px #999 solid;
   margin-right: 5px;
   border-radius: 2px;
+  background-color: #fff;
   &.complete {
     background-color: #5f5;
+  }
+  &:hover {
+    cursor: pointer;
   }
 }
 
 .todo-item-content {
   display: inline-block;
+  &.complete {
+    text-decoration: line-through;
+  }
 }
 
 .todo-item-delete-button {
   display: inline-block;
   float: right;
   padding: 0 0.25em;
-  background-color: #f55; 
+  color: white;
+  background-color: #f55;
+  border-radius: 2px;
+  &:hover {
+    background-color: #f88;
+    cursor: pointer;
+  }
 }
