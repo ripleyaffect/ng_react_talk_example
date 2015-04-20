@@ -1,0 +1,35 @@
+<div class="todo-list">
+  <form
+      method="post"
+      accept-charset="utf-8">
+    <input
+        type="text"
+        placeholder="New Item"
+        ng-model="newItem.content"/>
+    <input
+        type="submit"
+        value="Add"
+        ng-click="handleSubmitNewItem()"/>
+  </form>
+
+  <div
+      class="todo-item"
+      ng-repeat="item in items">
+    <div
+        class="todo-item-complete-button"
+        ng-click="handleToggleItem($index)">
+      {{item.complete ? 'complete!' : 'uncomplete'}}
+    </div>
+    <div
+        class="todo-item-content"
+        ng-class="item.complete ? 'complete' : 'incomplete'">
+      {{item.content}}
+    </div>
+    <div
+        class="todo-item-delete-button"
+        ng-click="handleDeleteItem($index)">
+      &times;
+    </div>
+  </div>
+
+</div>
