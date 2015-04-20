@@ -1,8 +1,10 @@
+// We use browserify to work with modules
 const angular = require('angular');
 const ngreact = require('ngreact');
 const TodoList = require('./components/TodoList');
 const data = require('./data');
 
+// Inject ngReact ('react') as a dependency for our angular app
 const app = angular.module('app', ['react'])
   .controller('appController', ['$scope', function ($scope) {
     $scope.items = data;
@@ -11,15 +13,19 @@ const app = angular.module('app', ['react'])
   // Pure angular method. We create a directive that renders a list of todos
   .directive('todoList', [function () {
       return {
-        restrict: 'E',
+        restrict: 'E',  // Restrict the directive to an Element
         templateUrl: '/static/templates/todo_list.html',
         link: function (scope) {
+          // Object bound to new item form
           scope.newItem = {
             content: '',
             weight: 1
           };
 
-          scope.handleSubmitNewItem = function () {
+          /**
+           * 
+           */
+          scope.handleAddItem = function () {
             var addedItem = {
               content: scope.newItem.content,
               weight: scope.newItem.weight

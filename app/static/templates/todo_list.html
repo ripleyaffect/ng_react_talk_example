@@ -9,16 +9,16 @@
     <input
         type="submit"
         value="Add"
-        ng-click="handleSubmitNewItem()"/>
+        ng-click="handleAddItem()"/>
   </form>
 
   <div
       class="todo-item"
       ng-repeat="item in items">
     <div
-        class="todo-item-complete-button"
+        class="todo-item-toggle-button"
+        ng-class="item.complete ? 'complete' : 'incomplete'"
         ng-click="handleToggleItem($index)">
-      {{item.complete ? 'complete!' : 'uncomplete'}}
     </div>
     <div
         class="todo-item-content"

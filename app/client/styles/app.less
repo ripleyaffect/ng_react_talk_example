@@ -1,0 +1,36 @@
+
+h2 {
+  text-align: center;
+}
+
+.todo-list {
+  width: 250px;
+  margin: 0 auto;
+}
+
+.todo-item {
+  position: relative;
+}
+
+.todo-item-toggle-button {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 1px #999 solid;
+  margin-right: 5px;
+  border-radius: 2px;
+  &.complete {
+    background-color: #5f5;
+  }
+}
+
+.todo-item-content {
+  display: inline-block;
+}
+
+.todo-item-delete-button {
+  display: inline-block;
+  float: right;
+  padding: 0 0.25em;
+  background-color: #f55; 
+}

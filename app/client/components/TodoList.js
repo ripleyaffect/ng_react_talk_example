@@ -53,7 +53,6 @@ const TodoListStore = Reflux.createStore({
 
 /**
  * TodoItem
- *
  */
 const TodoItem = React.createClass({
   handleDelete: function () {
@@ -69,8 +68,14 @@ const TodoItem = React.createClass({
   render: function () {
     const {complete, content, weight, index} = this.props;
 
-    const classes = cx({
-      'todo-item': true,
+    const toggleClasses = cx({
+      'todo-item-toggle-button': true,
+      'complete': complete,
+      'incomplete': !complete
+    });
+
+    const contentClasses = cx({
+      'todo-item-content': true,
       'complete': complete,
       'incomplete': !complete
     });
@@ -78,11 +83,12 @@ const TodoItem = React.createClass({
     return (
       <div className="todo-item">
         <div
-            className="todo-item-toggle-button"
+            className={toggleClasses}
             onClick={this.handleToggle}>
-          {complete ? 'complete!' : 'uncomplete'}
         </div>
-        {content}
+        <div className={contentClasses}>
+          {content}
+        </div>
         <div
             className="todo-item-delete-button"
             dangerouslySetInnerHTML={{__html: '&times;'}}
@@ -94,7 +100,6 @@ const TodoItem = React.createClass({
 
 /**
  * TodoList
- *
  */
 const TodoList = React.createClass({
   mixins: [Reflux.listenTo(TodoListStore, 'updateState', 'updateState')],
